@@ -1,0 +1,12 @@
+/* Main composition and natural photographic cup assembly. */
+const beforeHeroBalance=home;
+home=function(){return beforeHeroBalance().replace('<div class="hero-sticker">한 컵에 미니 세 스쿱<strong>2,500<span>원</span></strong><span>작은 취향, 가벼운 가격</span></div>',`<div class="hero-sticker serving-card"><div class="serving-scoops" aria-hidden="true">${[0,6,13].map(i=>img(i,'',false)).join('')}</div><span class="serving-kicker">SMALL SCOOPS, LITTLE JOYS</span><h2>한 컵에<br>미니 세 스쿱</h2><p>작은 취향,<br>가벼운 가격</p><strong>2,500<span>원</span></strong><span class="serving-weight">미니 3스쿱 · 총 67g</span></div>`);};
+const scoopBoundsCache=new WeakMap();
+function scoopBounds(im){if(scoopBoundsCache.has(im))return scoopBoundsCache.get(im);const t=document.createElement('canvas');t.width=im.naturalWidth;t.height=im.naturalHeight;const tc=t.getContext('2d',{willReadFrequently:true});tc.drawImage(im,0,0);const d=tc.getImageData(0,0,t.width,t.height).data;let l=t.width,r=0,top=t.height,b=0;for(let yy=0;yy<t.height;yy+=2)for(let xx=0;xx<t.width;xx+=2)if(d[(yy*t.width+xx)*4+3]>50){l=Math.min(l,xx);r=Math.max(r,xx);top=Math.min(top,yy);b=Math.max(b,yy)}const box=[l,top,Math.max(1,r-l+2),Math.max(1,b-top+2)];scoopBoundsCache.set(im,box);return box;}
+paintSharedCupLayer=async function(c,ids,x,y,size){const photo=recipePhoto(ids);if(photo){drawContain(c,await loadImage(photo),x,y,size,size);return;}const [vessel,...scoops]=await Promise.all([loadImage('assets/empty-serving-cup-v2.png'),...ids.map(i=>loadImage(flavors[i].image))]);c.save();c.translate(x,y);c.scale(size/1254,size/1254);c.drawImage(vessel,0,0,1254,1254);
+const seats=[[180,325,460,435],[614,325,460,435],[415,450,440,425]];
+scoops.forEach((im,i)=>{const [sx,sy,sw,sh]=scoopBounds(im);const [dx,dy,dw,dh]=seats[i];c.save();c.shadowColor='#33251e25';c.shadowBlur=12;c.shadowOffsetY=10;c.drawImage(im,sx,sy,sw,sh,dx,dy,dw,dh);c.restore();});
+c.save();c.beginPath();c.moveTo(117,529);c.bezierCurveTo(160,646,350,751,627,760);c.bezierCurveTo(905,751,1095,646,1137,529);c.lineTo(1254,1254);c.lineTo(0,1254);c.closePath();c.clip();c.drawImage(vessel,0,0,1254,1254);c.restore();c.restore();};
+const beforeComicRestore=robotPage;
+robotPage=function(){let html=beforeComicRestore();let comic=originStory();comic=comic.slice(0,comic.indexOf('<form id="bear-name-form"'))+'</section>';return html.replace('<section class="name-campaign">',comic+'<section class="name-campaign">');};
+render();
