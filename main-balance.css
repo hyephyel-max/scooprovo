@@ -59,3 +59,57 @@ header nav[aria-label="주 메뉴"] a.active{background:#064c43;color:#fff}
 @media(max-width:390px){.hero-copy .actions{gap:8px;max-width:308px}.hero-copy .actions>a.btn:first-child,.hero-copy .actions>a.btn.secondary{flex:1 1 0;width:auto;min-width:0;font-size:13px}}
 
 .robot-intro-page>.robot-origin{max-width:1000px;margin:40px auto 64px}.robot-intro-page>.robot-origin>h2{text-align:center;font-size:28px}.robot-intro-page>.robot-origin>.eyebrow{text-align:center}
+
+/* Scoped robot event presentation, retaining the existing mint/teal brand palette. */
+.robot-event-page{padding-top:48px;padding-bottom:40px}
+.robot-event-page>.robot-origin{margin:0 auto 56px;max-width:none}
+.robot-event-page .robot-origin>.eyebrow,.robot-event-page .robot-origin>h2{text-align:center}
+.robot-event-page .origin-panels{align-items:stretch}
+.robot-event-page .origin-panel{padding:16px;border-radius:24px;background:#fffef3;min-width:0}
+.robot-event-page .origin-panel h3{font-size:19px;line-height:1.5;margin:14px 0 18px;word-break:keep-all}
+.robot-event-page .origin-panel p{font-size:16px;line-height:1.85;word-break:keep-all;overflow-wrap:break-word}
+.robot-event-page .robot-event-campaign{max-width:none;width:100%;margin:0 auto;padding:40px;background:#c1ecdf;border-color:#b3dfd0;border-radius:28px;text-align:left}
+.robot-event-page .campaign-prize{display:block;margin:0 0 20px}
+.robot-event-page .campaign-prize .prize-card{display:none}
+.robot-event-page .event-kicker{display:inline-block;padding:4px 9px;background:#a9e8d5;margin-bottom:16px;color:#07584f}
+.robot-event-page .campaign-prize h2{font-size:clamp(29px,4vw,48px);line-height:1.4;text-align:left;margin:0;color:#154f45}
+.event-rewards{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 28px}
+.event-rewards span{display:block;padding:10px 20px;background:#fff;border-radius:999px;font-size:17px;font-weight:700;color:#07584f}
+.event-rewards span:first-child{background:#805841;color:#fffef3}
+.robot-event-page .bear-biography{text-align:left;margin:0 0 28px;max-width:none}
+.robot-event-page .bear-biography h2{font-size:20px;line-height:1.9;font-weight:500;margin:0 0 10px}
+.robot-event-page .bear-biography p{font-size:19px;line-height:1.9;margin:0}
+.robot-event-page .bear-peek-stage{max-width:none;width:100%;height:auto;aspect-ratio:1.65;min-height:0;border-radius:28px;margin:30px 0;isolation:isolate}
+.robot-event-page .bear-peek{width:75%;height:95%;animation:event-bear-wave 6s ease-in-out infinite}
+@keyframes event-bear-wave{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+.robot-event-page .bear-work-link{position:absolute;left:24px;bottom:24px;z-index:4;gap:12px}
+.robot-event-page .bear-work-link>span{background:#fff;color:#07584f;width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.event-details{display:grid;gap:12px;margin:30px 0}
+.event-details>div{display:grid;grid-template-columns:50px minmax(0,1fr);gap:12px;font-size:17px;line-height:1.8}
+.event-details dt{font-weight:800;color:#154f45}.event-details dd{margin:0;color:#496b60}
+.robot-event-page .bear-name-form{max-width:none;width:100%;padding:28px;margin:28px 0 24px;background:#fff;border-radius:24px;display:grid;gap:14px;text-align:left}
+.robot-event-page .bear-name-form .event-visible-label{position:static!important;width:auto!important;height:auto!important;overflow:visible!important;clip-path:none!important;white-space:normal}
+.robot-event-page .bear-name-form label:not(.event-consent){font-size:17px;font-weight:700;color:#234e42}
+.robot-event-page .bear-name-form input:not([type=checkbox]){width:100%;min-width:0;background:#f3fcf8;font-size:17px;padding:16px;border:1px solid #c1dfd3;border-radius:14px;min-height:54px}
+.robot-event-page .event-consent{display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.8;color:#57776a;margin:8px 0}
+.robot-event-page .event-consent input{width:21px;height:21px;flex:0 0 21px;accent-color:#07584f;margin:3px 0 0}
+.robot-event-page .bear-name-form .btn{width:100%;justify-self:stretch;min-height:56px;font-size:18px}
+.event-result:empty{display:none}.event-result{display:grid;gap:8px;padding:18px;background:#effbf5;border:1px dashed #7fae9c;border-radius:12px;color:#07584f}
+.event-result span{font-size:16px}.event-result small{font-size:13px}
+.event-next-links{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0}
+.robot-event-page .robot-event-campaign>.fine{font-size:13px;line-height:1.85;color:#5a786c;margin:22px 0 0}
+@media(max-width:1023px){.robot-event-page .origin-panels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+ .robot-event-page{padding-top:30px}.robot-event-page .robot-event-campaign{padding:24px 20px;border-radius:22px}
+ .robot-event-page .origin-panel{padding:12px}.robot-event-page .origin-panel h3{font-size:17px;margin-bottom:12px}.robot-event-page .origin-panel p{font-size:14px}
+ .robot-event-page .campaign-prize h2{font-size:29px}.event-rewards{gap:8px}.event-rewards span{font-size:14px;padding:8px 12px}
+ .robot-event-page .bear-biography h2,.robot-event-page .bear-biography p{font-size:16px}
+ .robot-event-page .bear-peek-stage{aspect-ratio:.85;margin:24px 0;min-height:0}.robot-event-page .bear-peek{width:100%;height:86%}
+ .robot-event-page .bear-work-link{left:12px;right:12px;bottom:15px;font-size:13px;padding:10px 8px;gap:8px}
+ .robot-event-page .peek-hello{right:14px;top:18px;padding:8px 14px;font-size:13px}
+ .event-details>div{font-size:15px;grid-template-columns:36px minmax(0,1fr);gap:8px}
+ .robot-event-page .bear-name-form{padding:20px 16px;gap:12px}.robot-event-page .bear-name-form input:not([type=checkbox]){font-size:16px;padding:14px}
+ .robot-event-page .bear-name-form .btn{font-size:15px;min-width:0;white-space:normal}
+ .event-next-links{gap:12px}.event-next-links .text-link{font-size:13px}
+}
+@media(max-width:420px){.robot-event-page .origin-panels{grid-template-columns:minmax(0,1fr)}.robot-event-page .origin-panel{display:grid;grid-template-columns:100px minmax(0,1fr);gap:0 12px;align-items:start}.robot-event-page .origin-art{grid-row:1/3}.robot-event-page .origin-panel h3{margin:0 0 8px}.robot-event-page .origin-panel p{margin:0;font-size:13px}.robot-event-page .campaign-prize h2{font-size:26px}}
